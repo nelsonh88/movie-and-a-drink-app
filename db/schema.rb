@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 20180814004301) do
     t.datetime "updated_at", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "screen_name", null: false
+    t.string "username", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["screen_name"], name: "index_users_on_screen_name", unique: true
     t.index ["token"], name: "index_users_on_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "examples", "users"
