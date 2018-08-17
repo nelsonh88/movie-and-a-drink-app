@@ -26,9 +26,11 @@ ActiveRecord::Schema.define(version: 20180817220620) do
   create_table "game_rules", force: :cascade do |t|
     t.text "rules", null: false
     t.bigint "movie_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_game_rules_on_movie_id"
+    t.index ["user_id"], name: "index_game_rules_on_user_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -56,5 +58,6 @@ ActiveRecord::Schema.define(version: 20180817220620) do
 
   add_foreign_key "examples", "users"
   add_foreign_key "game_rules", "movies"
+  add_foreign_key "game_rules", "users"
   add_foreign_key "movies", "users"
 end
